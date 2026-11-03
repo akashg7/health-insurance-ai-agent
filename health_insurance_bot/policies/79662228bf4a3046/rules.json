@@ -1,0 +1,491 @@
+{
+  "_meta": {
+    "pdf_hash": "79662228bf4a3046",
+    "pdf_filename": "policy.pdf",
+    "extracted_at": "2026-05-06T12:59:14.068721Z",
+    "extraction_model": "llama-3.3-70b-versatile",
+    "num_conditions": 48
+  },
+  "rules": {
+    "hernia repair": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Hernia repair is excluded until the expiry of 24 months of continuous coverage.",
+      "_category": "common_procedures"
+    },
+    "cholecystectomy gall bladder": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Diseases of gall bladder including... cholecystitis",
+      "page_reference": 29,
+      "notes": "Covered after 24-month waiting period. The policy excludes expenses related to diseases of the gall bladder for 24 months.",
+      "_category": "common_procedures"
+    },
+    "cataract surgery": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Cataract surgery is excluded until the expiry of 24 months of continuous coverage.",
+      "_category": "common_procedures"
+    },
+    "knee replacement": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Knee replacement is excluded until 24 months of continuous coverage.",
+      "_category": "common_procedures"
+    },
+    "hip replacement": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Hip replacement is likely excluded for 24 months as a specified disease or procedure.",
+      "_category": "common_procedures"
+    },
+    "cardiac bypass surgery": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Cardiac bypass surgery is excluded until 24 months of continuous coverage.",
+      "_category": "common_procedures"
+    },
+    "tonsillectomy": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Tonsillectomy is likely excluded due to specified disease waiting period.",
+      "_category": "common_procedures"
+    },
+    "appendectomy": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Appendectomy is likely excluded due to specified disease waiting period.",
+      "_category": "common_procedures"
+    },
+    "hysterectomy": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Hysterectomy is likely excluded due to specified disease waiting period.",
+      "_category": "common_procedures"
+    },
+    "angioplasty stent": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Angioplasty stent is likely excluded for 24 months as a specified disease or procedure.",
+      "_category": "common_procedures"
+    },
+    "cancer chemotherapy": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Cancer chemotherapy is excluded until the expiry of 24 months of continuous coverage.",
+      "_category": "common_procedures"
+    },
+    "stroke treatment": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Stroke treatment is excluded until the expiry of 24 months of continuous coverage.",
+      "_category": "common_procedures"
+    },
+    "brain tumor surgery": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Brain tumor surgery is excluded until the expiry of 24 months of continuous coverage.",
+      "_category": "common_procedures"
+    },
+    "diabetes": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 1095,
+      "evidence_quote": "Expenses related to the treatment of a pre-existing disease",
+      "page_reference": 28,
+      "notes": "Covered after 36-month waiting period. Diabetes is considered a pre-existing disease with a 36-month waiting period.",
+      "_category": "common_conditions"
+    },
+    "kidney dialysis": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 1095,
+      "evidence_quote": "Expenses related to the treatment of a pre-existing disease",
+      "page_reference": 28,
+      "notes": "Covered after 36-month waiting period. Kidney dialysis is likely a pre-existing disease, thus excluded for 36 months.",
+      "_category": "common_procedures"
+    },
+    "hypertension high blood pressure": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 1095,
+      "evidence_quote": "Pre-Existing Diseases: Code – Excl01",
+      "page_reference": 28,
+      "notes": "Covered after 36-month waiting period. Hypertension is considered a pre-existing disease with a 36-month waiting period.",
+      "_category": "common_conditions"
+    },
+    "thyroid disorders": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 1095,
+      "evidence_quote": "Pre-Existing Diseases: Code – Excl01",
+      "page_reference": 28,
+      "notes": "Covered after 36-month waiting period. Thyroid disorders are likely considered pre-existing diseases and thus excluded for 36 months.",
+      "_category": "common_conditions"
+    },
+    "kidney stones": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "calculus diseases of Urogenital system e.g.Kidney stone",
+      "page_reference": 29,
+      "notes": "Covered after 24-month waiting period. Kidney stones are listed under specified diseases with a 24-month waiting period.",
+      "_category": "common_conditions"
+    },
+    "asthma": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "",
+      "page_reference": 0,
+      "notes": "extraction error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqyk5n3pepqberj11h56tsxm` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 11979, Requested 954. Please try again in 4.665s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "_category": "common_conditions"
+    },
+    "PCOD polycystic ovarian disease": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "",
+      "page_reference": 0,
+      "notes": "extraction error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqyk5n3pepqberj11h56tsxm` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 11970, Requested 961. Please try again in 4.655s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "_category": "common_conditions"
+    },
+    "osteoarthritis": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 1095,
+      "evidence_quote": "Expenses related to the treatment of a pre-existing disease",
+      "page_reference": 28,
+      "notes": "Covered after 36-month waiting period. Osteoarthritis is likely a pre-existing disease and thus excluded for 36 months.",
+      "_category": "common_conditions"
+    },
+    "fibroids": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "List of specific diseases/procedures",
+      "page_reference": 29,
+      "notes": "Covered after 24-month waiting period. Fibroids are not explicitly mentioned but may be implied under the category of 'Benign tumors, cysts, nodules, polyps'.",
+      "_category": "common_conditions"
+    },
+    "GERD acid reflux": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "",
+      "page_reference": 0,
+      "notes": "extraction error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqyk5n3pepqberj11h56tsxm` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 11911, Requested 980. Please try again in 4.455s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "_category": "common_conditions"
+    },
+    "sinusitis": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Sinusitis is likely excluded for 24 months as a specified disease.",
+      "_category": "common_conditions"
+    },
+    "haemorrhoids piles": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Specified Disease/Procedure waiting period",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Haemorrhoids piles is likely a specified disease with a 24-month waiting period.",
+      "_category": "common_conditions"
+    },
+    "varicose veins": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "",
+      "page_reference": 0,
+      "notes": "extraction error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqyk5n3pepqberj11h56tsxm` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 11830, Requested 976. Please try again in 4.03s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "_category": "common_conditions"
+    },
+    "maternity pregnancy childbirth": {
+      "covered": false,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "",
+      "page_reference": 0,
+      "notes": "Permanently excluded under standard exclusions (not covered under base plan).",
+      "_category": "common_exclusions_to_verify"
+    },
+    "cosmetic plastic surgery": {
+      "covered": false,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Cosmetic plastic surgery is excluded until the expiry of 24 months of continuous coverage.",
+      "_category": "common_exclusions_to_verify"
+    },
+    "IVF infertility treatment": {
+      "covered": false,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "",
+      "page_reference": 0,
+      "notes": "Permanently excluded under standard exclusions (not covered under base plan).",
+      "_category": "common_exclusions_to_verify"
+    },
+    "routine dental treatment": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 730,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Covered after 24-month waiting period. Routine dental treatment is likely excluded due to the specified disease waiting period.",
+      "_category": "common_exclusions_to_verify"
+    },
+    "obesity bariatric surgery": {
+      "covered": false,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "Expenses related to the surgical treatment of obesity",
+      "page_reference": 30,
+      "notes": "Obesity bariatric surgery is excluded unless specific conditions are met.",
+      "_category": "common_exclusions_to_verify"
+    },
+    "hearing aids spectacles": {
+      "covered": false,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "",
+      "page_reference": 0,
+      "notes": "Permanently excluded under standard exclusions (not covered under base plan).",
+      "_category": "common_exclusions_to_verify"
+    },
+    "refractive eye surgery LASIK": {
+      "covered": false,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "Expenses related to the treatment of the listed Conditions",
+      "page_reference": 28,
+      "notes": "Refractive eye surgery LASIK is excluded until 24 months of continuous coverage.",
+      "_category": "common_exclusions_to_verify"
+    },
+    "OPD outpatient consultation": {
+      "covered": false,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "",
+      "page_reference": 0,
+      "notes": "Permanently excluded under standard exclusions (not covered under base plan).",
+      "_category": "common_exclusions_to_verify"
+    },
+    "vaccination immunization": {
+      "covered": false,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "Expenses related to the treatment of a pre-existing disease",
+      "page_reference": 28,
+      "notes": "Vaccination immunization is not explicitly mentioned, but given the context, it seems unlikely to be covered under pre-existing disease or specified disease exclusions.",
+      "_category": "common_exclusions_to_verify"
+    },
+    "alcohol substance abuse": {
+      "covered": false,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "Specified Disease/Procedure waiting period",
+      "page_reference": 28,
+      "notes": "Alcohol substance abuse is likely excluded under specified disease waiting period.",
+      "_category": "common_exclusions_to_verify"
+    },
+    "hazardous adventure sports": {
+      "covered": false,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "",
+      "page_reference": 0,
+      "notes": "Permanently excluded under standard exclusions (not covered under base plan).",
+      "_category": "common_exclusions_to_verify"
+    },
+    "self-inflicted injury suicide": {
+      "covered": false,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "Expenses related to the treatment",
+      "page_reference": 28,
+      "notes": "The condition is not explicitly excluded or included, but given the context, it appears to be excluded as it can be considered a self-inflicted injury.",
+      "_category": "common_exclusions_to_verify"
+    },
+    "ICU intensive care charges": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "",
+      "page_reference": 0,
+      "notes": "extraction error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqyk5n3pepqberj11h56tsxm` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 11940, Requested 981. Please try again in 4.605s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "_category": "general_coverage_items"
+    },
+    "hospitalization room rent": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "Room rent expenses shall be covered",
+      "page_reference": 25,
+      "notes": "The policy covers hospitalization room rent with no specified monetary cap or waiting period mentioned in the excerpts.",
+      "_category": "general_coverage_items"
+    },
+    "day care procedures": {
+      "covered": false,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "Expenses related to any admission primarily for diagnostics and evaluation purposes only are excluded.",
+      "page_reference": 30,
+      "notes": "Day care procedures are likely excluded as they may be considered as diagnostics and evaluation purposes only.",
+      "_category": "general_coverage_items"
+    },
+    "ambulance road": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "",
+      "page_reference": 0,
+      "notes": "extraction error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqyk5n3pepqberj11h56tsxm` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 11780, Requested 992. Please try again in 3.86s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "_category": "general_coverage_items"
+    },
+    "emergency air ambulance": {
+      "covered": true,
+      "sub_limit_inr": 500000,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "Emergency Air Ambulance Covered Up to 500,000",
+      "page_reference": 51,
+      "notes": "Emergency air ambulance is covered up to 500,000 with conditions.",
+      "_category": "general_coverage_items"
+    },
+    "pre hospitalization expenses": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "Pre-Hospitalization Expenses",
+      "page_reference": 26,
+      "notes": "Pre-hospitalization expenses are covered, but details about waiting period and sub-limit are not explicitly mentioned in the given excerpts.",
+      "_category": "general_coverage_items"
+    },
+    "AYUSH ayurveda treatment": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "",
+      "page_reference": 0,
+      "notes": "extraction error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqyk5n3pepqberj11h56tsxm` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 11767, Requested 1023. Please try again in 3.949999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "_category": "general_coverage_items"
+    },
+    "organ donor expenses": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "The Company shall indemnify the Medical Expenses",
+      "page_reference": 13,
+      "notes": "Organ donor expenses are covered under certain conditions.",
+      "_category": "general_coverage_items"
+    },
+    "post hospitalization expenses": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "",
+      "page_reference": 0,
+      "notes": "extraction error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqyk5n3pepqberj11h56tsxm` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 11795, Requested 965. Please try again in 3.8s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "_category": "general_coverage_items"
+    },
+    "domiciliary hospitalization at home": {
+      "covered": true,
+      "sub_limit_inr": null,
+      "co_pay_percent": 0,
+      "waiting_period_days": 0,
+      "evidence_quote": "medical treatment for an illness/disease/injury which in the normal course would require care and treatment at a hospital",
+      "page_reference": 4,
+      "notes": "Domiciliary hospitalization is covered under the policy as a form of medical treatment at home under specific circumstances.",
+      "_category": "general_coverage_items"
+    }
+  }
+}

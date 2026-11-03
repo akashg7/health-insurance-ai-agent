@@ -52,7 +52,13 @@ OUTPUT FORMAT (markdown — the UI renders it):
 def build_agent(verbose: bool = True) -> AgentExecutor:
     api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
-        raise RuntimeError("GROQ_API_KEY not set in environment / .env")
+        try:
+            import streamlit as st
+            api_key = st.secrets.get("GROQ_API_KEY")
+        except Exception:
+            pass
+    if not api_key:
+        raise RuntimeError("GROQ_API_KEY not set in environment / .env / Streamlit secrets")
 
     model = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
     llm = ChatGroq(model=model, temperature=0, api_key=api_key)

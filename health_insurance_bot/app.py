@@ -11,7 +11,17 @@ from ingest import pdf_fingerprint
 from policy_processor import process
 from tools._context import CTX, set_custom_user, set_policy, set_user
 
+import os
+
 load_dotenv()
+
+# Bridge Streamlit Cloud Secrets into environment if running in Cloud
+if "GROQ_API_KEY" not in os.environ:
+    try:
+        if "GROQ_API_KEY" in st.secrets:
+            os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
+    except Exception:
+        pass
 
 st.set_page_config(page_title="Health Insurance Chatbot", page_icon=":hospital:", layout="wide")
 

@@ -14,8 +14,8 @@ venv.bak/
 chroma_db/
 chroma_store/
 **/chroma_store/
-health_insurance_bot/policies/
-policies/
+health_insurance_bot/policies/_uploads/
+policies/_uploads/
 *.sqlite3
 
 # Python Cache
