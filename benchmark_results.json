@@ -1,0 +1,431 @@
+{
+  "timestamp": "2026-11-03T20:12:02Z",
+  "model_tested": "openai/gpt-oss-20b",
+  "benchmark_1_claim_math": {
+    "total_scenarios": 15,
+    "deterministic_tool_accuracy_pct": 100.0,
+    "deterministic_tool_error_pct": 0.0,
+    "llm_direct_accuracy_pct": 100.0,
+    "llm_direct_error_rate_pct": 0.0,
+    "llm_details": [
+      {
+        "id": "SC-01",
+        "description": "Cataract surgery with sub-limit below bill and 10% co-pay",
+        "expected": 36000.0,
+        "llm_output_raw": "Final Payable: INR 36000",
+        "llm_parsed_val": 36000.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 0.877
+      },
+      {
+        "id": "SC-02",
+        "description": "Cataract surgery with bill below sub-limit",
+        "expected": 31500.0,
+        "llm_output_raw": "Final Payable: INR 31500",
+        "llm_parsed_val": 31500.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 1.509
+      },
+      {
+        "id": "SC-03",
+        "description": "Appendectomy with 5% co-pay and no sub-limit",
+        "expected": 114000.0,
+        "llm_output_raw": "Final Payable: INR 114000",
+        "llm_parsed_val": 114000.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 0.608
+      },
+      {
+        "id": "SC-04",
+        "description": "Knee replacement with 20% senior co-pay",
+        "expected": 224000.0,
+        "llm_output_raw": "Final Payable: INR 224000",
+        "llm_parsed_val": 224000.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 0.755
+      },
+      {
+        "id": "SC-05",
+        "description": "Hernia repair with 10% co-pay",
+        "expected": 67500.0,
+        "llm_output_raw": "Final Payable: INR 67500",
+        "llm_parsed_val": 67500.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 0.588
+      },
+      {
+        "id": "SC-06",
+        "description": "Cholecystectomy with 5% co-pay",
+        "expected": 90250.0,
+        "llm_output_raw": "Final Payable: INR 90250",
+        "llm_parsed_val": 90250.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 0.672
+      },
+      {
+        "id": "SC-07",
+        "description": "Cardiac procedure with 10% co-pay",
+        "expected": 315000.0,
+        "llm_output_raw": "Final Payable: INR 315000",
+        "llm_parsed_val": 315000.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 0.37
+      },
+      {
+        "id": "SC-08",
+        "description": "Joint replacement exceeding Sum Insured cap",
+        "expected": 240000.0,
+        "llm_output_raw": "Final Payable: INR 240000",
+        "llm_parsed_val": 240000.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 0.699
+      },
+      {
+        "id": "SC-09",
+        "description": "Daycare dialysis with 10% co-pay",
+        "expected": 16200.0,
+        "llm_output_raw": "Final Payable: INR 16200",
+        "llm_parsed_val": 16200.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 0.798
+      },
+      {
+        "id": "SC-10",
+        "description": "Chemotherapy session with 5% co-pay",
+        "expected": 61750.0,
+        "llm_output_raw": "Final Payable: INR 61750",
+        "llm_parsed_val": 61750.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 0.578
+      },
+      {
+        "id": "SC-11",
+        "description": "Robotic surgery sub-limit \u20b91,00,000 with 10% co-pay",
+        "expected": 90000.0,
+        "llm_output_raw": "Final Payable: INR 90000",
+        "llm_parsed_val": 90000.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 0.918
+      },
+      {
+        "id": "SC-12",
+        "description": "Tonsillectomy sub-limit \u20b930,000 with 5% co-pay",
+        "expected": 28500.0,
+        "llm_output_raw": "Final Payable: INR 28500",
+        "llm_parsed_val": 28500.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 0.81
+      },
+      {
+        "id": "SC-13",
+        "description": "Maternity sub-limit \u20b950,000 with 10% co-pay",
+        "expected": 45000.0,
+        "llm_output_raw": "Final Payable: INR 45000",
+        "llm_parsed_val": 45000.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 1.268
+      },
+      {
+        "id": "SC-14",
+        "description": "Kidney stone procedure sub-limit \u20b940,000 with 20% co-pay",
+        "expected": 32000.0,
+        "llm_output_raw": "Final Payable: INR 32000",
+        "llm_parsed_val": 32000.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 1.52
+      },
+      {
+        "id": "SC-15",
+        "description": "Emergency ICU admission with 10% co-pay",
+        "expected": 189000.0,
+        "llm_output_raw": "Final Payable: INR 189000",
+        "llm_parsed_val": 189000.0,
+        "error_amount": 0.0,
+        "is_correct": true,
+        "latency_sec": 0.557
+      }
+    ]
+  },
+  "benchmark_2_tool_routing": {
+    "total_queries": 30,
+    "overall_accuracy_pct": 96.67,
+    "per_tool_metrics": {
+      "check_coverage": {
+        "precision_pct": 100.0,
+        "recall_pct": 100.0,
+        "f1_score": 100.0,
+        "support": 5
+      },
+      "calculate_claim": {
+        "precision_pct": 100.0,
+        "recall_pct": 80.0,
+        "f1_score": 88.9,
+        "support": 5
+      },
+      "find_network_hospitals": {
+        "precision_pct": 100.0,
+        "recall_pct": 100.0,
+        "f1_score": 100.0,
+        "support": 5
+      },
+      "list_required_documents": {
+        "precision_pct": 100.0,
+        "recall_pct": 100.0,
+        "f1_score": 100.0,
+        "support": 5
+      },
+      "get_user_policy": {
+        "precision_pct": 100.0,
+        "recall_pct": 100.0,
+        "f1_score": 100.0,
+        "support": 5
+      },
+      "search_policy_docs": {
+        "precision_pct": 100.0,
+        "recall_pct": 100.0,
+        "f1_score": 100.0,
+        "support": 5
+      }
+    },
+    "mean_routing_latency_sec": 0.84,
+    "query_results": [
+      {
+        "query": "Is cataract surgery covered under my health policy?",
+        "expected": "check_coverage",
+        "predicted": "check_coverage",
+        "correct": true,
+        "latency_sec": 0.355
+      },
+      {
+        "query": "Does the plan cover chemotherapy and cancer treatments?",
+        "expected": "check_coverage",
+        "predicted": "check_coverage",
+        "correct": true,
+        "latency_sec": 0.975
+      },
+      {
+        "query": "Are joint replacement surgeries covered?",
+        "expected": "check_coverage",
+        "predicted": "check_coverage",
+        "correct": true,
+        "latency_sec": 0.396
+      },
+      {
+        "query": "What is the waiting period for pre-existing hypertension?",
+        "expected": "check_coverage",
+        "predicted": "check_coverage",
+        "correct": true,
+        "latency_sec": 0.275
+      },
+      {
+        "query": "Is maternity delivery covered in this insurance?",
+        "expected": "check_coverage",
+        "predicted": "check_coverage",
+        "correct": true,
+        "latency_sec": 0.538
+      },
+      {
+        "query": "My hospital bill for appendectomy is Rs 1,20,000. How much will I get reimbursed?",
+        "expected": "calculate_claim",
+        "predicted": "calculate_claim",
+        "correct": true,
+        "latency_sec": 0.526
+      },
+      {
+        "query": "What is my expected claim payout if cataract surgery costs Rs 50,000?",
+        "expected": "calculate_claim",
+        "predicted": "calculate_claim",
+        "correct": true,
+        "latency_sec": 0.774
+      },
+      {
+        "query": "How much will the insurer pay for my hernia surgery bill of 75,000 rupees?",
+        "expected": "calculate_claim",
+        "predicted": "calculate_claim",
+        "correct": true,
+        "latency_sec": 0.363
+      },
+      {
+        "query": "Calculate my claim reimbursement for a 2 lakh knee surgery under user U1001",
+        "expected": "calculate_claim",
+        "predicted": "calculate_claim",
+        "correct": true,
+        "latency_sec": 0.555
+      },
+      {
+        "query": "If my total hospitalization bill is 40000 for daycare, how much is payable to me?",
+        "expected": "calculate_claim",
+        "predicted": "none",
+        "correct": false,
+        "latency_sec": 0.323
+      },
+      {
+        "query": "Find cashless network hospitals in Bangalore for cardiology",
+        "expected": "find_network_hospitals",
+        "predicted": "find_network_hospitals",
+        "correct": true,
+        "latency_sec": 0.875
+      },
+      {
+        "query": "Which hospitals in Mumbai offer cashless admission for orthopedics?",
+        "expected": "find_network_hospitals",
+        "predicted": "find_network_hospitals",
+        "correct": true,
+        "latency_sec": 0.892
+      },
+      {
+        "query": "Show me network hospitals in Chennai with oncology facilities",
+        "expected": "find_network_hospitals",
+        "predicted": "find_network_hospitals",
+        "correct": true,
+        "latency_sec": 0.477
+      },
+      {
+        "query": "Where can I find an empanelled cashless hospital in Delhi?",
+        "expected": "find_network_hospitals",
+        "predicted": "find_network_hospitals",
+        "correct": true,
+        "latency_sec": 0.784
+      },
+      {
+        "query": "Are there any cashless hospitals in Kolkata for ophthalmology?",
+        "expected": "find_network_hospitals",
+        "predicted": "find_network_hospitals",
+        "correct": true,
+        "latency_sec": 0.466
+      },
+      {
+        "query": "What documents do I need to file a reimbursement claim?",
+        "expected": "list_required_documents",
+        "predicted": "list_required_documents",
+        "correct": true,
+        "latency_sec": 0.453
+      },
+      {
+        "query": "List the paperwork required for cashless hospital admission",
+        "expected": "list_required_documents",
+        "predicted": "list_required_documents",
+        "correct": true,
+        "latency_sec": 1.122
+      },
+      {
+        "query": "What forms and certificates are needed for pre-authorization?",
+        "expected": "list_required_documents",
+        "predicted": "list_required_documents",
+        "correct": true,
+        "latency_sec": 0.558
+      },
+      {
+        "query": "What checklist of documents should I submit for post-hospitalization claims?",
+        "expected": "list_required_documents",
+        "predicted": "list_required_documents",
+        "correct": true,
+        "latency_sec": 0.694
+      },
+      {
+        "query": "Which documents are required for day care procedure claim submission?",
+        "expected": "list_required_documents",
+        "predicted": "list_required_documents",
+        "correct": true,
+        "latency_sec": 1.213
+      },
+      {
+        "query": "What is my remaining sum insured and active no-claim bonus?",
+        "expected": "get_user_policy",
+        "predicted": "get_user_policy",
+        "correct": true,
+        "latency_sec": 0.56
+      },
+      {
+        "query": "Show my policy start date and co-pay terms for user U1001",
+        "expected": "get_user_policy",
+        "predicted": "get_user_policy",
+        "correct": true,
+        "latency_sec": 0.431
+      },
+      {
+        "query": "What are my registered pre-existing diseases on profile U1003?",
+        "expected": "get_user_policy",
+        "predicted": "get_user_policy",
+        "correct": true,
+        "latency_sec": 0.528
+      },
+      {
+        "query": "Check my personal policy tier and deductible details",
+        "expected": "get_user_policy",
+        "predicted": "get_user_policy",
+        "correct": true,
+        "latency_sec": 1.507
+      },
+      {
+        "query": "Retrieve policyholder details and family floater coverage limits",
+        "expected": "get_user_policy",
+        "predicted": "get_user_policy",
+        "correct": true,
+        "latency_sec": 2.113
+      },
+      {
+        "query": "Explain the policy wording for emergency ambulance coverage clause",
+        "expected": "search_policy_docs",
+        "predicted": "search_policy_docs",
+        "correct": true,
+        "latency_sec": 1.087
+      },
+      {
+        "query": "Why does the policy exclude cosmetic and aesthetic procedures?",
+        "expected": "search_policy_docs",
+        "predicted": "search_policy_docs",
+        "correct": true,
+        "latency_sec": 0.242
+      },
+      {
+        "query": "What is the detailed definition of domiciliary hospitalization in the terms?",
+        "expected": "search_policy_docs",
+        "predicted": "search_policy_docs",
+        "correct": true,
+        "latency_sec": 1.548
+      },
+      {
+        "query": "Quote the policy clause regarding grace period for premium renewals",
+        "expected": "search_policy_docs",
+        "predicted": "search_policy_docs",
+        "correct": true,
+        "latency_sec": 2.631
+      },
+      {
+        "query": "How is room rent sub-limit calculated according to the policy definitions?",
+        "expected": "search_policy_docs",
+        "predicted": "search_policy_docs",
+        "correct": true,
+        "latency_sec": 1.942
+      }
+    ]
+  },
+  "benchmark_3_token_efficiency": {
+    "naive_rag_avg_prompt_tokens": 383.0,
+    "agentic_rules_avg_prompt_tokens": 173.2,
+    "token_reduction_pct": 54.78,
+    "tested_samples": 5
+  },
+  "benchmark_4_latency": {
+    "tool_lookup_avg_ms": 0.0106,
+    "tool_lookup_p95_ms": 0.0013,
+    "llm_inference_p50_sec": 0.743,
+    "llm_inference_p90_sec": 1.444,
+    "llm_inference_p99_sec": 1.444
+  }
+}

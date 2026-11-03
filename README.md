@@ -66,5 +66,8 @@ Launch the Streamlit interface:
 streamlit run app.py
 ```
 
-## 🏗️ Architecture Note
-For a deep dive into how the agent makes decisions, routes tool calls, and handles vector embeddings, please see the `ARCHITECTURE.md` file located inside the `health_insurance_bot/` directory.
+## 📚 Documentation & Benchmarks
+- **[PROJECT_OVERVIEW.md](file:///Users/akashg/Downloads/Health-isurance%20Agent/PROJECT_OVERVIEW.md):** Complete technical architecture, 6-tool suite design, data pipeline, and system specifications.
+- **[RESUME_SHOWCASE.md](file:///Users/akashg/Downloads/Health-isurance%20Agent/RESUME_SHOWCASE.md):** Google XYZ formula resume pointers, empirical metrics table, and technical interview defense guide.
+- **[EVALUATION_REPORT.md](file:///Users/akashg/Downloads/Health-isurance%20Agent/EVALUATION_REPORT.md):** Full empirical benchmark results (96.7% tool routing, 54.8% token reduction, 0.0% math errors).
+- **[ARCHITECTURE.md](file:///Users/akashg/Downloads/Health-isurance%20Agent/health_insurance_bot/ARCHITECTURE.md):** Original single-page design spec.
