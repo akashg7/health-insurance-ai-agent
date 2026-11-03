@@ -116,3 +116,4 @@ When technical interviewers ask deep-dive questions about this project, use thes
 Include these keywords on your resume alongside this project to pass applicant tracking systems:
 
 `Agentic RAG` · `LangChain` · `LangGraph` · `Groq LPU` · `LLaMA 3.3 / GPT-OSS` · `Function Calling / Tool Calling` · `ChromaDB` · `Vector Embeddings (all-MiniLM-L6-v2)` · `ReAct Framework` · `Deterministic Systems` · `Hallucination Mitigation` · `Streamlit` · `Python 3.12` · `pdfplumber` · `Semantic Search` · `System Prompt Engineering` · `Empirical Benchmarking` · `Latency Optimization`
+
