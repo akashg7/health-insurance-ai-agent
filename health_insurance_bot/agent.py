@@ -1,12 +1,14 @@
-"""LangChain agent factory: 6 tools + Groq llama-3.3-70b."""
+"""LangChain tool-calling ReAct agent factory with multi-turn memory and strict grounding."""
 
 import os
 
 from dotenv import load_dotenv
+from groq import Groq
 from langchain_classic.agents import AgentExecutor, create_tool_calling_agent
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_groq import ChatGroq
 
+from policy_validator import get_groq_api_key, resolve_groq_model
 from tools.coverage import calculate_claim, check_coverage
 from tools.documents import list_required_documents
 from tools.hospitals import find_network_hospitals
@@ -15,53 +17,51 @@ from tools.user import get_user_policy
 
 load_dotenv()
 
-SYSTEM_PROMPT = """You are an Indian health insurance assistant. The user has uploaded their health insurance policy PDF and wants help understanding it.
+AGENT_MODEL_PREFERENCE = [
+    "openai/gpt-oss-120b",
+    "qwen/qwen3.8-27b",
+    "llama-3.3-70b-versatile",
+    "openai/gpt-oss-20b",
+]
 
-You have 6 tools. Decision policy:
-- "Is X covered?" or coverage of a specific procedure/condition -> check_coverage first.
-- Open-ended "why/how/explain" questions about policy wording -> search_policy_docs.
-- "How much will I get?" or claim amount questions -> chain: check_coverage -> get_user_policy -> calculate_claim.
-- "Where can I go?" or hospital availability -> find_network_hospitals (returns ONLY cashless network).
-- "What documents do I need?" or claim paperwork -> list_required_documents.
-- For multi-part questions, chain multiple tools as needed.
+SYSTEM_PROMPT = """You are a grounded Health Insurance Policy Assistant helping a policyholder understand their active uploaded PDF.
 
-Hard rules:
-- All amounts are in Indian Rupees (INR). Format large numbers with commas (e.g. ₹36,000).
-- NEVER invent sub-limits, co-pays, or waiting periods. Only use values returned by tools.
-- When you quote the policy, cite the page number from the tool output.
-- If check_coverage returns covered=null (no rule found), use search_policy_docs to look up the answer in the policy text.
-- If a condition is excluded (covered=false), explain it's not covered and quote the exclusion reason.
-- For waiting periods: 0 = no wait, 30 = 30 days initial, 730 = 24 months (specified disease), 1095 = 36 months (PED).
+ACTIVE POLICY CONTEXT:
+{policy_context}
 
-OUTPUT FORMAT (markdown — the UI renders it):
-- Lead with a 1-sentence direct answer in **bold**.
-- For ANY list of 2+ items (documents, hospitals, conditions, steps), use markdown bullets:
-    - Each item on its own line starting with `-` or `*`
-    - Use sub-bullets for nested detail
-- For claim calculations, use a small table or a key-value bullet list:
-    - **Bill amount:** ₹50,000
-    - **Sub-limit applied:** ₹40,000
-    - **Co-pay (10%):** ₹4,000
-    - **Payable to you:** ₹36,000
-- Use **bold** for key facts (covered status, amounts, page numbers, waiting periods).
-- End with a one-line citation: *Source: policy page X*.
-- Keep prose to 1-2 sentences max — let the structure carry the answer.
-- NEVER write a long paragraph that contains a comma-separated list. Always break to bullets."""
+TOOL DECISION POLICY (6 tools):
+1. Specific condition/surgery coverage or waiting period ("Is X covered?") -> call `check_coverage` first.
+   - IMPORTANT: If `check_coverage` returns `status="not_mentioned"` or `covered=null` (or an error), you MUST immediately call `search_policy_docs` to inspect the full text of the active PDF before answering!
+2. Open-ended "why/how/explain/define" questions or clauses -> call `search_policy_docs`.
+3. Claim payout or reimbursement estimate ("How much will I get for ₹X?") -> chain: `check_coverage` -> `get_user_policy` -> `calculate_claim`.
+   - If `check_coverage` shows `covered=null`, explain honestly that you cannot calculate a verified claim without explicit coverage confirmation in the PDF.
+   - If `calculate_claim` reports `eligible_today=false` because the waiting period has not completed yet (`waiting_period_not_completed`), lead clearly with **₹0 payable today (waiting period active: X days remaining)** and also share the post-waiting-period payout estimate!
+4. Hospital lookup ("Where can I go?" / "cashless hospitals") -> call `find_network_hospitals`.
+   - Always clarify concisely that hospital directory results come from the built-in **sample cashless reference directory** (not extracted from the uploaded PDF).
+5. Required paperwork ("What documents do I need?") -> call `list_required_documents` (note that this reflects the standard IRDAI reference checklist).
+6. User profile, sum insured, co-pay, or policy start date -> call `get_user_policy`.
+
+STRICT GROUNDEDNESS & CITATION RULES:
+- NEVER invent, guess, or extrapolate coverage, sub-limits, co-pays, waiting periods, or page numbers.
+- If BOTH `check_coverage` and `search_policy_docs` find no mention of the topic in the active PDF (e.g. `no_relevant_match`), state clearly and honestly: *"This document does not mention coverage or terms for <topic>."*
+- NEVER output "Source: policy page 0" or "page None". Only cite a page number when a tool explicitly returned a positive integer `page_reference` / `page`. If the answer comes from `hospitals` or `documents` reference data, cite that instead of a page number.
+- Format all currency in INR with commas (e.g., `₹36,000`).
+
+RESPONSE STYLE:
+- Lead with a clear, direct 1–2 sentence takeaway.
+- Use crisp bullet points or a compact key-value breakdown when presenting claim math, waiting periods, documents, or hospital lists.
+- End with a short grounded source line when applicable (e.g., `*Source: Policy Page 29*` or `*Source: Built-in Sample Directory*`)."""
 
 
-def build_agent(verbose: bool = True) -> AgentExecutor:
-    api_key = os.environ.get("GROQ_API_KEY")
-    if not api_key:
-        try:
-            import streamlit as st
-            api_key = st.secrets.get("GROQ_API_KEY")
-        except Exception:
-            pass
+def build_agent(verbose: bool = False) -> AgentExecutor:
+    api_key = get_groq_api_key()
     if not api_key:
         raise RuntimeError("GROQ_API_KEY not set in environment / .env / Streamlit secrets")
 
-    model = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
-    llm = ChatGroq(model=model, temperature=0, api_key=api_key)
+    client = Groq(api_key=api_key, timeout=30.0)
+    model = resolve_groq_model(client, "GROQ_MODEL", AGENT_MODEL_PREFERENCE)
+    llm = ChatGroq(model=model, temperature=0, api_key=api_key, timeout=30.0)
+
     tools = [
         check_coverage,
         calculate_claim,
@@ -88,34 +88,28 @@ def build_agent(verbose: bool = True) -> AgentExecutor:
 
 
 if __name__ == "__main__":
-    # CLI smoke test — runs the brief's 3 sample flows + 2 more.
     import sys
     from pathlib import Path
 
     from ingest import pdf_fingerprint
-    from tools._context import set_policy, set_user
+    from tools._context import get_context, set_policy, set_user
 
     pdf = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).parent / "data" / "policy.pdf"
     user_id = sys.argv[2] if len(sys.argv) > 2 else "U1001"
 
     set_policy(pdf_fingerprint(pdf), pdf)
     set_user(user_id)
+    ctx = get_context()
 
     executor = build_agent(verbose=False)
-
     questions = [
         "Is cataract surgery covered? My bill is Rs 50,000 — how much will I get?",
         "What documents do I need to file a hospitalization reimbursement claim?",
-        "I have diabetes — is it covered under my policy?",
         "Find a cashless hospital in Bangalore for ophthalmology.",
-        "What's the waiting period for pre-existing diseases?",
     ]
     for q in questions:
         print(f"\n>>> USER: {q}")
-        try:
-            result = executor.invoke({"input": q})
-            print(f"AGENT: {result['output']}")
-            steps = result.get("intermediate_steps", [])
-            print(f"  ({len(steps)} tool call(s): {[s[0].tool for s in steps]})")
-        except Exception as e:
-            print(f"ERROR: {e}")
+        result = executor.invoke({"input": q, "chat_history": [], "policy_context": ctx.policy_label})
+        print(f"AGENT: {result['output']}")
+        steps = result.get("intermediate_steps", [])
+        print(f"  ({len(steps)} tool call(s): {[s[0].tool for s in steps]})")

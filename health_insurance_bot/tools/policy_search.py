@@ -1,28 +1,55 @@
-"""RAG search over the uploaded policy PDF."""
+"""Thresholded hybrid RAG search over the uploaded policy PDF."""
 
 from langchain_core.tools import tool
 
-from ._context import CTX
-from ingest import search
+from ._context import get_context
+from ingest import hybrid_search
+
+MIN_SEARCH_SIMILARITY = 0.20
 
 
 @tool
 def search_policy_docs(query: str, k: int = 5) -> list[dict]:
-    """Search the user's uploaded policy PDF for clauses matching a natural-language query (RAG).
+    """Search the active uploaded health insurance PDF for clauses matching a query.
 
-    Use this for open-ended 'why' or 'explain' questions about policy wording,
-    definitions, or clauses NOT directly answered by check_coverage. Examples:
-      - "what's the definition of pre-existing disease?"
-      - "what's the claim notification timeline?"
-      - "explain the proportionate deduction rule for room rent"
-      - "what does 'at actuals' mean?"
+    Use this for:
+      - Open-ended 'why' or 'explain' questions about policy wording, definitions, or rules.
+      - Any condition/procedure where check_coverage returned status='not_mentioned'.
+      - Verifying exact wording on exclusions, sub-limits, waiting periods, or add-ons.
 
-    Returns up to k chunks with text, page number (for citation), and a relevance score.
+    Returns matching chunks with page numbers and similarity scores, OR a 'no_relevant_match'
+    status if the active PDF contains no relevant clauses.
     """
-    if CTX.pdf_path is None:
-        return [{"error": "No policy PDF loaded in this session."}]
-    hits = search(CTX.pdf_path, query, k=k)
+    ctx = get_context()
+    if ctx.pdf_path is None:
+        return [{"status": "error", "message": "No policy PDF loaded in this session."}]
+
+    keywords = [w for w in query.lower().split() if len(w) >= 4]
+    hits = hybrid_search(
+        ctx.pdf_path,
+        query,
+        keywords=keywords,
+        k=k,
+        min_similarity=MIN_SEARCH_SIMILARITY,
+    )
+    if not hits:
+        return [
+            {
+                "status": "no_relevant_match",
+                "document": ctx.pdf_path.name,
+                "message": (
+                    f"No clauses relevant to '{query}' were found in '{ctx.pdf_path.name}' "
+                    f"(above similarity threshold {MIN_SEARCH_SIMILARITY})."
+                ),
+            }
+        ]
+
     return [
-        {"text": h["text"], "page": h["page"], "relevance_score": round(1 - h["distance"], 3)}
+        {
+            "document": ctx.pdf_path.name,
+            "page": h["page"],
+            "similarity_score": round(float(h["similarity"]), 3),
+            "text": h["text"],
+        }
         for h in hits
     ]

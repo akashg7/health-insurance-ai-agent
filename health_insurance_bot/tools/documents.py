@@ -1,4 +1,4 @@
-"""Required-documents lookup tool."""
+"""Required-documents lookup tool (IRDAI standard checklists)."""
 
 import json
 from langchain_core.tools import tool
@@ -10,7 +10,7 @@ DOCS_FILE = DATA_DIR / "documents_rules.json"
 
 @tool
 def list_required_documents(claim_type: str) -> dict:
-    """List the paperwork required to file a specific type of insurance claim.
+    """List standard IRDAI-aligned paperwork required to file a specific type of insurance claim.
 
     Use this when the user asks 'what documents do I need?', 'how do I file a
     claim?', or 'what paperwork is required for X?'.
@@ -22,14 +22,22 @@ def list_required_documents(claim_type: str) -> dict:
           - 'day_care_procedure' (under 24h surgical procedures)
           - 'pre_post_hospitalization' (consultations/tests before or after stay)
           - 'maternity' (childbirth-related)
-        If user just says 'hospitalization', default to 'reimbursement_hospitalization'.
+        If user just says 'hospitalization', use 'reimbursement_hospitalization'.
         If user says 'cashless', use 'cashless_hospitalization'.
     """
     docs = json.loads(DOCS_FILE.read_text())
     ct = claim_type.lower().strip().replace(" ", "_").replace("-", "_")
     if ct in docs:
-        return {"claim_type": ct, "documents": docs[ct]}
+        return {
+            "data_source": "Standard IRDAI Claim Documentation Reference Checklist",
+            "claim_type": ct,
+            "documents": docs[ct],
+        }
     for k in docs:
         if ct in k or k in ct:
-            return {"claim_type": k, "documents": docs[k]}
+            return {
+                "data_source": "Standard IRDAI Claim Documentation Reference Checklist",
+                "claim_type": k,
+                "documents": docs[k],
+            }
     return {"error": f"Unknown claim type '{claim_type}'. Valid options: {list(docs.keys())}"}
